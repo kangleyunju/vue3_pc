@@ -1,0 +1,10 @@
+@import "~element-plus/theme-chalk/src/index";
+:root {
+  --el-color-primary: #409eff;
+  --el-text-color-primary: #333333;
+}
+
+.el-dropdown-link {
+  cursor: pointer;
+  color: var(--el-color-primary);
+}
