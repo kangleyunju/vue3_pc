@@ -2,7 +2,7 @@
 	<div class="menuContainer" :class="{active:collapse,black:night}">
 		<div class="logoBox">
 			<img src="@/assets/home/logo.png"/>
-			<div v-if="2>1">VUE后台</div>
+			<div>VUE后台</div>
 		</div>
 		<el-menu class="noCopy" :collapse="collapse">
 			<template v-for="item in list" >
@@ -35,11 +35,12 @@
 </template>
 
 <script setup>
-	import { ref ,computed} from 'vue'
-	import { useStore } from "vuex"
-	const store = useStore();
-	const collapse = computed(() => store.state.collapse)
-	const night= computed(() => store.state.night)
+	import { storeToRefs } from "pinia"
+	import { useStore } from '@/store'
+	
+	const store = useStore()
+	const { collapse, night } = storeToRefs(store)
+	
 	let list=ref([
 		{
 			title: "首页",

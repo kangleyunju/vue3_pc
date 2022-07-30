@@ -1,22 +1,19 @@
-import { createStore } from 'vuex'
+import { defineStore } from 'pinia'
 
-export default createStore({
-  state: {
-	  collapse:false,//菜单是否折叠
-	  night:false//是否黑夜
-  },
-  mutations: {
-  	  toCollapse(state){
-  		  state.collapse=!state.collapse
-  	  },
-	  changeNight(state){
-		  state.night=!state.night
-	  }
-  },
-  getters: {
-  },
-  actions: {
-  },
-  modules: {
-  }
+export const useStore = defineStore('main', {
+	state: () => {
+		return {
+			collapse: false,
+			night: false,
+			count:0
+		}
+	},
+	//同步,异步
+	actions: {
+		test(){
+			this.count++
+		}
+	},
+	getters: {
+	}
 })

@@ -4,24 +4,23 @@
 			<el-upload ref="upload" :auto-upload="false" :on-change="onOhange" :show-file-list="false" accept=".xlsx,.xls">
 				<el-button type="primary">导入</el-button>
 			</el-upload>
-			<el-button>导出</el-button>
+			<el-button type="success">导出</el-button>
 		</div>
-		<el-table :data="tableData" border style="width: 100%">
+		<el-table :data="state.tableData" border style="width: 100%">
 			<el-table-column prop="name" label="姓名" min-width="120"/>
 			<el-table-column prop="account" label="账号" min-width="120"/>
 			<el-table-column prop="password" label="密码" min-width="120"/>
 			<el-table-column prop="age" label="年龄" min-width="120"/>
 			<el-table-column prop="type" label="角色" min-width="120"/>
 		</el-table>
-		<!-- <svg-icon iconClass="face" className="face"></svg-icon> -->
-		<svg-icon iconClass="test" className='test-name'></svg-icon>
-
 	</div>
 </template>
 <script lang="ts" setup>
-	import { ref,reactive, computed } from 'vue'
 	import * as xlsx from 'xlsx';
-	let tableData = reactive([])
+	const state = reactive({
+	  tableData: []
+	})
+	//导入
 	const onOhange = (e) => {
 		const files = e.raw
 		const fileReader = new FileReader()
@@ -41,12 +40,11 @@
 				for(let j in arr[i]){
 					if(keyName[j]){
 						arr[i][keyName[j]]=arr[i][j]
-						delete arr[i][j]
+						delete arr[i][j] 
 					}
 				}
 			}
-			tableData=arr 
-			console.log(tableData)
+			state.tableData=arr
 		}
 		fileReader.readAsBinaryString(files)
 	}
@@ -55,5 +53,11 @@
 	}
 </script>
 <style lang="scss">
-	.indexContainer {}
+	.indexContainer {
+		.pageBtnLine{
+			.el-button{
+				margin-right:12px;
+			}
+		}
+	}
 </style>

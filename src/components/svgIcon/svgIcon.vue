@@ -1,53 +1,20 @@
 <template>
-  <svg :class="svgClass" v-bind="$attrs" :style="{width,height,color}">
-    <use :href="svgName"></use>
-  </svg>
+	<svg aria-hidden="true" class="svgIcon" :style="{color}">
+		<use :xlink:href="iconName"/>
+	</svg>
 </template>
+<script setup lang="ts">
+	const props = defineProps({
+		iconClass: { type: String, required: true},
+		color: { type: String, default: '#333333' }
+	})
 
-<script setup>
-import {computed} from "vue";
-const props = defineProps({
-  //图标名称 如 home
-  iconName: {
-    type: String,
-    default: ""
-  },
-  //对不同区域的 icon 样式调整，如字体大小
-  className: {
-    type: String,
-    default: ""
-  },
-  width: {
-    type: Number,
-    default: 16
-  },
-  height: {
-    type: Number,
-    default: 16
-  },
-  color: {
-    type: String,
-    default: "#888"
-  }
-})
-
-const svgName=computed(()=>`#icon-${props.iconName}`);
-const svgClass=computed(()=>{
-  if(props.name){
-    return `svg-icon icon-${props.iconName}`
-  }
-  return `svg-icon`
-})
+	const iconName = computed(() => `#icon-${props.iconClass}`);
 </script>
-
-<style>
-.svg-icon {
-  width: 16px;
-  height: 16px;
-  vertical-align: -0.15em;
-  fill: currentColor; /*此属性为更改svg颜色属性设置*/
-  stroke: currentColor;
-  overflow: hidden;
-  margin-right: 8px;
-}
+<style scoped>
+	.svgIcon {
+		width: 24px;
+		height: 24px;
+		overflow: hidden;
+	}
 </style>

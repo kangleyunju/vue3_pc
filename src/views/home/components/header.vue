@@ -1,15 +1,18 @@
 <template>
 	<div class="headerContainer noCopy" :class="{active:collapse,black:night}">
 		<div class="left">
-			<el-icon :size="20" @click="toCollapse" :class="{active:collapse}">
+			<el-icon :size="20" @click="collapse=!collapse" :class="{active:collapse}">
 				<Fold />
 			</el-icon>
 		</div>
 		<div class="right">
-			<el-switch @change="changeNight" v-model="night" inline-prompt :active-icon="Moon" :inactive-icon="Sunny" active-color="#333" inactive-color="#bbb"/>
+			<div class="circle xzw_center" :class="{dark:night}" @click="night=!night">
+				<svg-icon iconClass="sun" v-if="!night"/>
+				<svg-icon iconClass="moon" v-if="night"/>
+			</div>
 			<el-dropdown @command="handleCommand" popper-class="userBox">
 				<div class="userBox">
-					<el-image :src="user.face" />
+					<svg-icon iconClass="face"/>
 					<div class="xie_word1">{{user.name}}</div>
 					<el-icon>
 						<arrow-down />
@@ -26,25 +29,24 @@
 	</div>
 </template>
 <script lang="ts" setup>
-	import { ref ,computed} from 'vue'
 	import { ElMessage } from 'element-plus'
-	import { useStore } from "vuex"
 	import { Moon, Sunny } from '@element-plus/icons-vue'
-	const store = useStore();
-	const collapse = computed(() => store.state.collapse);
-	const toCollapse = () => {
-		store.commit('toCollapse');
-	}
-	const night= computed(() => store.state.night)
-	const changeNight = (e) => {
-		store.commit('changeNight');
-	}
+	import { storeToRefs } from "pinia"
+	import { useStore } from '@/store'
+	
+	const store = useStore()
+	const { collapse, night} = storeToRefs(store);
+
 	let user = ref({
-		face: require("@/assets/home/face.jpg"),
 		name: '古天乐'
 	})
-	const handleCommand = (command: string | number | object) => {
-		ElMessage(`click on item ${command}`)
+	const handleCommand = (e) => {
+		ElMessage(e)
+		if(e==1){
+			
+		}else{
+			
+		}
 	}
 </script>
 <style lang="scss">
@@ -91,6 +93,24 @@
 			display:flex;
 			align-items:center;
 			justify-content:flex-end;
+			.circle{
+				height: 30px;
+				width: 30px;
+				border-radius: 50%;
+				background-color: #e5e6eb;
+				margin-right: 10px;
+				cursor: pointer;
+				.svgIcon{
+					height: 16px;
+					width: 16px;
+				}
+				&.dark{
+					background-color: #3E3E48;
+					.svgIcon{
+						color: #D3D3D3;
+					}
+				}
+			}
 			.userBox {
 				display: flex;
 				align-items: center;
@@ -99,7 +119,6 @@
 				border-radius: 4px;
 			
 				&:hover {
-
 					.el-icon {
 						
 					}
@@ -109,6 +128,10 @@
 					height: 32px;
 					width: 32px;
 					border-radius: 50%;
+				}
+				.svgIcon{
+					height: 26px;
+					width: 26px;
 				}
 			
 				div {

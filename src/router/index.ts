@@ -12,10 +12,15 @@ const routes: Array<RouteRecordRaw> = [
 		component: layout,
 		children: homeRoute
 	}
+	//  {
+	//         path: '/',
+	//         name: 'home',
+	//         component: () => import('@/views/home/page/layout.vue'), // 注意这里要带上 文件后缀.vue
+	// }
 ]
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHistory(),
   routes
 })
 

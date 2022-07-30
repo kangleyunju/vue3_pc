@@ -23,6 +23,11 @@
 		-webkit-box-orient:vertical;
 		-webkit-line-clamp:2; 
 	}
+	.xzw_center{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
 	//禁止复制
 	.noCopy {
 		-moz-user-select: none;

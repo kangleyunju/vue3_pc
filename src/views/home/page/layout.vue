@@ -8,14 +8,13 @@
 	</div>
 </template>
 
-<script lang="ts" setup>
-	import Menu from '@/views/home/components/menu'
-	import Header from '@/views/home/components/header'
-	import { ref ,computed} from 'vue'
-	import { useStore } from "vuex"
-	const store = useStore();
-	const collapse = computed(() => store.state.collapse);
-
+<script lang="tsx" setup>
+	import Menu from '@/views/home/components/menu.vue'
+	import Header from '@/views/home/components/header.vue'
+	import { storeToRefs } from "pinia"
+	import { useStore } from '@/store'
+	const store = useStore()
+	const { collapse } = storeToRefs(store)
 </script>
 
 <style lang="scss">
