@@ -3,8 +3,8 @@ import { defineStore } from 'pinia'
 export const useStore = defineStore('main', {
 	state: () => {
 		return {
-			collapse: false,
-			night: false,
+			collapse: true,
+			night: true,
 			count:0
 		}
 	},

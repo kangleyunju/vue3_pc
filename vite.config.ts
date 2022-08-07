@@ -6,6 +6,8 @@ import * as path from "path"
 import { resolve } from 'path'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 export default defineConfig({
 	//打包路径
@@ -25,8 +27,12 @@ export default defineConfig({
 			ext: '.gz'
 		}),
 		AutoImport({
-			imports: ["vue", "vue-router"]
-		})
+			imports: ["vue", "vue-router"],
+			resolvers: [ElementPlusResolver()]
+		}),
+		    Components({
+		      resolvers: [ElementPlusResolver()]
+		    })
 	],
 	//配置路径别名
 	resolve: {

@@ -36,8 +36,11 @@ npm i vite-plugin-svg-icons@2.x -D
 #### sass
 vite不需要sass-loader和node-loader
 
-#### 自动引入插件
+#### 自动引入vue所需
 npm i unplugin-auto-import -D
+
+#### 自动引入element组件
+npm i unplugin-vue-components -D
 
 #### excel导入插件
 npm i xlsx

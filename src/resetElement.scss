@@ -8,3 +8,18 @@
   cursor: pointer;
   color: var(--el-color-primary);
 }
+
+.el-table{
+	.el-table__header th{
+		font-weight: normal;
+		height: 48px;
+		background: #f4f7ff !important;
+	}
+	.el-table__body td{
+		height: 48px;
+	}
+	.el-button.is-text{
+		margin: 0;
+		padding: 0 10px;
+	}
+}
