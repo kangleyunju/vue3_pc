@@ -22,7 +22,7 @@ export default defineConfig({
 		viteCompression({
 			verbose: true,
 			disable: false,
-			threshold: 10240,
+			threshold: 10240,	 
 			algorithm: 'gzip',
 			ext: '.gz'
 		}),
@@ -30,9 +30,9 @@ export default defineConfig({
 			imports: ["vue", "vue-router"],
 			resolvers: [ElementPlusResolver()]
 		}),
-		    Components({
-		      resolvers: [ElementPlusResolver()]
-		    })
+		Components({
+			resolvers: [ElementPlusResolver()]
+		})
 	],
 	//配置路径别名
 	resolve: {

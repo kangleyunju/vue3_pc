@@ -79,14 +79,7 @@
 			const table = xlsx.utils.book_new()
 			xlsx.utils.book_append_sheet(table, data, 'tableName')
 			xlsx.writeFile(table,
-				{ bookType: 'xlsx', bookSST: false, type: 'binary', cellStyles: true, defaultCellStyle: defaultCellStyle, showGridLines: false }  //写入的样式
-				
-				作者：归丶
-				链接：https://juejin.cn/post/7003277929190785061
-				来源：稀土掘金
-				著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
-				
-				
+				{ bookType: 'xlsx', bookSST: false, type: 'binary', cellStyles: true, defaultCellStyle: defaultCellStyle, showGridLines: false }  
 				
 			'tableName.xlsx',{
 				
