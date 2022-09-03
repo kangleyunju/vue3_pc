@@ -78,12 +78,12 @@
 			const data = xlsx.utils.json_to_sheet(arr)
 			const table = xlsx.utils.book_new()
 			xlsx.utils.book_append_sheet(table, data, 'tableName')
-			xlsx.writeFile(table,
-				{ bookType: 'xlsx', bookSST: false, type: 'binary', cellStyles: true, defaultCellStyle: defaultCellStyle, showGridLines: false }  
+			// xlsx.writeFile(table,
+			// 	{ bookType: 'xlsx', bookSST: false, type: 'binary', cellStyles: true, defaultCellStyle: defaultCellStyle, showGridLines: false }  
 				
-			'tableName.xlsx',{
+			// 'tableName.xlsx',{
 				
-			})
+			// })
 		}
 	}
 	const editItem=(item,index)=>{
