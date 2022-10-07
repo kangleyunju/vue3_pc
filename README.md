@@ -1,8 +1,8 @@
-### 介绍
+### 简介
 vue3电脑端后台，vue3+elementPlus+vite+typescript+pinia
 
 ### 邮箱
-249042680@qq.com
+有问题可以提Issue，或者发邮件：249042680@qq.com，觉得不错可以点个赞
 
 ### 仓库
 [gitee](https://gitee.com/kangleyunju/home)
@@ -79,3 +79,6 @@ npm i unplugin-vue-components -D
 ```
 npm i xlsx
 ```
+
+### 网址
+https://static-2503170c-6f74-4217-ac1a-43133fb6d1b4.bspapp.com/vue3_pc
